@@ -1,0 +1,47 @@
+From 5cc35f5ecaeaa157b5089f52ad2b957719465c10 Mon Sep 17 00:00:00 2001
+From: anupamakpatil <anupamakpatil123@gmail.com>
+Date: Mon, 31 May 2021 23:05:13 +0530
+Subject: [PATCH] made changes in the Makefile and change the occurance of NAME
+ to my name
+
+---
+ Makefile | 4 ++--
+ module.c | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 60ad736..4fa2ad0 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+-obj-m += rename_me.o
++obj-m += module.o
+ 
+ all:
+ 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+ 
+ clean:
+-	make -c /lib/modules/$(shell uname -r)/build M=$(PWD) clean
++	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+diff --git a/module.c b/module.c
+index 7b66414..c42d1dd 100644
+--- a/module.c
++++ b/module.c
+@@ -3,12 +3,12 @@
+ #include <linux/init.h>   //for __init and __exit macros
+ 
+ MODULE_LICENSE("GNU General Public License v2");
+-MODULE_AUTHOR("NAME");
++MODULE_AUTHOR("ANUPAMA K PATIL");
+ MODULE_DESCRIPTION("Hello World Kernel Module");
+ 
+ static int __init my_init(void)
+ {
+-	printk(KERN_INFO "Hello world! I am NAME\n");
++	printk(KERN_INFO "Hello world! I am ANUPAMA K PATIL.\n");
+ 	return 0;
+ }
+ 
+-- 
+2.17.1
+
